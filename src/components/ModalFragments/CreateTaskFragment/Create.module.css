@@ -1,0 +1,41 @@
+.title {
+  color: rgba(49 49 49 / 90%);
+  margin-bottom: 15px;
+}
+
+.flex-wrapper {
+  display: flex;
+  margin-top: 15px;
+}
+
+.selects {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toggle {
+  display: flex;
+  color: rgba(49 49 49 / 75%);
+  align-items: center;
+  gap: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.transparent {
+  opacity: 0;
+  margin-top: 10px;
+}

@@ -1,0 +1,51 @@
+.c-button {
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  color: #fff;
+}
+
+.primary {
+  border: 2px solid #4d4edd;
+  background-color: #4d4edd;
+}
+
+.primary:hover {
+  background-color: #fff;
+  color: #4d4edd;
+}
+
+.secondary {
+  border: 2px solid crimson;
+  background-color: crimson;
+}
+
+.secondary:hover {
+  background-color: #fff;
+  color: crimson;
+}
+
+.tertiary {
+  border: 2px solid #f5a623;
+  background-color: #f5a623;
+}
+
+.tertiary:hover {
+  background-color: #fff;
+  color: #f5a623;
+}
+
+.smaller {
+  font-weight: 400;
+  letter-spacing: 1px;
+  padding: 7px 10px;
+  width: 120px;
+}
+
+.bigger {
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 15px;
+  width: 210px;
+}

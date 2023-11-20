@@ -1,0 +1,47 @@
+.bg-disabled {
+  background-color: rgb(229 231 235);
+}
+
+.bg-enabled {
+  background-color: rgb(37 99 235);
+}
+
+.switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  width: 44px;
+  border-radius: 9999px;
+  cursor: pointer;
+  border: none;
+}
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.checker-enabled {
+  transform: translateX(24px);
+}
+
+.checker-disabled {
+  transform: translateX(4px);
+}
+
+.checker {
+  display: inline-block;
+  border-radius: 9999px;
+  width: 1rem;
+  height: 1rem;
+  background-color: #fff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

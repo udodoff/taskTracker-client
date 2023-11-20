@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: Ubuntu, sans-serif;
+  scrollbar-width: auto;
+  scrollbar-color: #636363 #fff;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #636363;
+  border-radius: 10px;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(
+    to right top,
+    #884e77,
+    #8d488b,
+    #8944a3,
+    #7746c0,
+    #494edf
+  );
+}

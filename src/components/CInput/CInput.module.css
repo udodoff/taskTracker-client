@@ -1,0 +1,15 @@
+.c-input {
+  padding: 10px;
+  border-radius: 15px;
+  border: none;
+  background-color: #f5f5f5;
+  outline: none;
+}
+
+.standart {
+  width: 210px;
+}
+
+.full {
+  width: 100%;
+}

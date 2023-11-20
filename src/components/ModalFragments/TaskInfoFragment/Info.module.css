@@ -1,0 +1,86 @@
+.title {
+  color: rgba(49 49 49 / 80%);
+  margin-bottom: 10px;
+  padding-left: 5px;
+  font-size: 16px;
+}
+
+.desc-title {
+  padding-left: 5px;
+  margin-bottom: 10px;
+}
+
+.right-side {
+  flex: 1;
+  text-align: center;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.parent-title {
+  margin-bottom: 10px;
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.view-tree {
+  color: #2563eb;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.important-title {
+  color: #f5a623;
+  margin-bottom: 5px;
+}
+
+.flex-wrapper {
+  display: flex;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.name-input {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.error {
+  color: red;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.transparent {
+  color: transparent;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.parent-select {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.open-parent {
+  color: #2563eb;
+  font-size: 14px;
+  cursor: pointer;
+}

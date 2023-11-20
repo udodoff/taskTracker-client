@@ -1,0 +1,79 @@
+.c-select {
+  width: 130px;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.list-box {
+  position: relative;
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  color: rgba(49 49 49 / 75%);
+  background-color: #f5f5f5;
+}
+
+.selected {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.icon-wrapper {
+  pointer-events: none;
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  right: 3px;
+  display: flex;
+}
+
+.icon {
+  height: 21px;
+  width: 21px;
+  color: rgb(156 163 175);
+}
+
+.options {
+  color: rgba(49 49 49 / 75%);
+  position: absolute;
+  margin-top: 4px;
+  max-height: 240px;
+  width: 100%;
+  overflow: auto hidden;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  z-index: 200000;
+  box-shadow: 0 0 9px rgba(0 0 0 / 30%);
+}
+
+.option {
+  position: relative;
+  user-select: none;
+  padding: 8px 16px 8px 35px;
+}
+
+.option-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.check-wrapper {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 9px;
+}
+
+.check-icon {
+  height: 20px;
+  width: 20px;
+}
