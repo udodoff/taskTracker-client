@@ -1,9 +1,10 @@
-import { ETaskStatus } from '../../store/types';
+import { ETaskStatus, Store } from '../../store/types';
 
 export interface IChildrenTreeProps {
   active: boolean;
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
   parentId: number;
+  todoStore: Store;
 }
 export interface IChildRes {
   id: number;

@@ -2,16 +2,23 @@ import CButton from '../../components/CButton/CButton';
 import CInput from '../../components/CInput/CInput';
 import styles from './login.module.css';
 import { useState, useEffect } from 'react';
-import todoStore from '../../store/todoStore';
+import { observer } from 'mobx-react-lite';
 import { useNavigate } from 'react-router-dom';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { ISubmit } from './types';
+import { Store } from '../../store/types';
 
-const LoginPage = () => {
+const LoginPage: React.FC<{ todoStore: Store }> = observer(({ todoStore }) => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [pageStatus, setPageStatus] = useState('Login');
-  const [error, setError] = useState('placeholder');
-  const [message, setMessage] = useState('');
   const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ISubmit>();
 
   useEffect(() => {
     todoStore.checkAuth().then(res => {
@@ -21,25 +28,17 @@ const LoginPage = () => {
     });
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onsubmit: SubmitHandler<ISubmit> = async data => {
     const body = {
-      login,
-      password,
+      login: data.login,
+      password: data.password,
     };
     let result =
       pageStatus === 'Login'
         ? await todoStore.signIn(body)
         : await todoStore.signUp(body);
-
-    if (result?.error) {
-      setError(result.error);
-      setLogin('');
-      setPassword('');
-      return;
-    }
-    if (pageStatus === 'Register') {
-      setMessage('Succeed, you can login now');
+    if ('error' in result) {
+      reset();
       return;
     }
     if (result.status === 'ok') {
@@ -49,22 +48,31 @@ const LoginPage = () => {
 
   const handleChangeStatus = () => {
     setPageStatus(pageStatus === 'Login' ? 'Register' : 'Login');
-    setError('placeholder');
-    setMessage('');
-    setLogin('');
-    setPassword('');
+    reset();
   };
 
   return (
     <div className={styles.container}>
       <div className={styles['login-wrapper']}>
         <h1 className={styles.title}>{pageStatus}</h1>
-        <form onSubmit={e => handleSubmit(e)} className={styles['login-form']}>
+        <form
+          onSubmit={handleSubmit(onsubmit)}
+          className={styles['login-form']}
+        >
           <CInput
             onChange={e => {
               setLogin(e.target.value);
             }}
             value={login}
+            name="login"
+            register={register}
+            validationSchema={{
+              required: 'Login is required',
+              minLength: {
+                value: 5,
+                message: 'Please enter a minimum of 5 characters',
+              },
+            }}
             type="text"
             placeholder="Login"
             width="standart"
@@ -72,6 +80,15 @@ const LoginPage = () => {
           <CInput
             value={password}
             onChange={e => setPassword(e.target.value)}
+            name="password"
+            register={register}
+            validationSchema={{
+              required: 'Password is required',
+              minLength: {
+                value: 5,
+                message: 'Please enter a minimum of 5 characters',
+              },
+            }}
             type="password"
             placeholder="Password"
             width="standart"
@@ -80,20 +97,16 @@ const LoginPage = () => {
             Submit
           </CButton>
         </form>
-        {!message.length && (
-          <p
-            className={
-              error !== 'placeholder' ? styles.error : styles.transparent
-            }
-          >
-            {error}
-          </p>
-        )}
-        {!!message.length && (
-          <p className={message.length ? styles.message : styles.transparent}>
-            {message}
-          </p>
-        )}
+        <p
+          className={
+            errors.login?.message || errors.password?.message
+              ? styles.error
+              : styles.transparent
+          }
+        >
+          {errors.login?.message || errors.password?.message}
+        </p>
+
         <p className={styles.switch}>
           {pageStatus === 'Login'
             ? 'No account? '
@@ -105,6 +118,6 @@ const LoginPage = () => {
       </div>
     </div>
   );
-};
+});
 
 export default LoginPage;

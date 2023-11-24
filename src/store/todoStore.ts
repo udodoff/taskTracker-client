@@ -89,6 +89,8 @@ class TodoStore {
           this.todos = [...this.todos, response.data.task];
         });
         return { status: 'ok' };
+      } else {
+        return { error: 'Something went wrong' };
       }
     } catch (error) {
       return { error: 'Something went wrong' };
@@ -123,7 +125,7 @@ class TodoStore {
   };
   deleteTodo = async (todoId: number | undefined) => {
     if (!todoId) {
-      return;
+      return { error: 'Something went wrong' };
     }
     this.todos = this.todos.filter(todo => todo.id !== todoId);
     try {
